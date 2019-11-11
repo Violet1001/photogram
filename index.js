@@ -7,11 +7,15 @@ $(function(){
 			type:"post",
 			//, filtro_tipo: $("#select[name='filtro_tipo']").val()
 			data: {filtro_nome: $("#filtro_nome").val()},
-			success:function(a){
+			success:function(matriz){
 				var i=0;
-				var fotos=null;
-				for(i=0;i<a;i++){
-					fotos+="<img src='"+a.nome_imagem+"'/>";
+				console.log(matriz);
+				do{
+					fotos="<img src='imagens/"+matriz[i]+"' class='w-50'/>";
+					i++;
+				}
+				while(matriz.length<i){
+					fotos+="<img src='imagens/"+matriz[i]+"' class='w-50'/>";	
 				}
 				$("#fotos_home").html(fotos);
 			}
