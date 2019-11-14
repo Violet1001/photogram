@@ -66,7 +66,7 @@
 					<legend class='col-form-label col-sm-2 pt-0'>Sexo</legend>
 					<div class='col-sm-10'>
 					<div class='form-check'>
-					<input class='form-check-input' type='radio' name='sexo' id='gridRadios1' value='feminino' checked='checked'/>
+					<input class='form-check-input' type='radio' name='sexo' id='gridRadios1' value='feminino'/>
 					<label class='form-check-label' for='gridRadios1'/>
 					Feminino
 					</label>
