@@ -1,18 +1,18 @@
-<?php 
-	include("head.inc");
-?>
+<?php include("head.inc"); ?>
 		<script src='cadastro.js'></script>
-
 		<title>Cadastro</title>
 	</head>
-	<body>
+	<body onload="myFunction()" style="margin:0;">
+	<?php include('loading.inc') ?>
 <?php
 	session_start();
 	if(isset($_SESSION["validado"])){
 		header("Location:index.php");
 	}
 	else{
-		echo"<div class='container-fluid'>
+		echo"
+			<div class='container-fluid'>
+
 				<h1 class='text-center'>Cadastro</h1>
 				<div id='cadastro' class='w-50 text-center border p-3' style='margin-left:25%;'>
 
@@ -103,6 +103,7 @@
 
 					<button class='btn btn-primary' type='submit' style = 'height: 50px; width: 100px; margin-left: 250px;'>Enviar</button>
 				</form>
+				</div>
 				</div>
 			</body>
 		</html>";
