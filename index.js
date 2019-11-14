@@ -31,9 +31,10 @@ $(function(){
 					for(i=0;matriz.length>i;i++){
 						fotos+="<img src='./imagens/"+matriz[i]+"' class='m-3' style='width:15%;'/>";
 					}
+					p=$("#opcoes").html();
 					$("#fotos_home").html(fotos);
 					$("#opcoes").remove();
-					var remover="<div id='opcoes'><button id='remover_filtro'>Remover filtros</button></div>";
+					var remover="<div id='opcoes'><button id='remover_filtro' class='remove_filtro'>Remover filtros</button></div>";
 					$("#filtro").append(remover);
 				}
 				else{
@@ -42,24 +43,11 @@ $(function(){
 			}
 		});
 	});
-	$(document).on("click","#remover_filtro",function(){
+	$(document).on("click",".remove_filtro",function(){
 		var voltar="<div id='opcoes'>";
 		voltar+=p;
 		voltar+="</div>";
+		$("#filtro").html(p);
+		carrega_fotos();
 	});
-	/*function remove_filtro(){
-		$.ajax({
-			url:"carrega_foto.php",
-			type:"get",
-			data:{f:"remover"},
-			success:function(d){
-				var i=0;
-				var fotos="<br/>";
-				for(i=0;d.length>i;i++){
-					fotos+="<img src='./imagens/"+d[i]+"' class='m-3' style='width:15%;'/>";
-				}
-				$("fotos_home").html(fotos);
-			}
-		});
-	}*/
 });

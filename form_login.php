@@ -9,6 +9,7 @@
 				<div class='text-center'>
 				<h1>Login</h1>
 				<?php
+					include("menu.inc");
 					if(!isset($_SESSION["validado"])){
 						echo "<br/> <center>";
 							echo "<form action='valida_login.php' method='post' class='needs-validation' novalidate>
@@ -22,7 +23,7 @@
 												<br/>
 
 										<label for='pass' for='validationCustom02'>Senha: </label>
-											<input type='text' class='form-control text-capitalize' id='validationCustom02' placeholder='Senha......' name = 'senha' id='pass'  required />
+											<input type='password' class='form-control' id='validationCustom02' placeholder='Senha......' name = 'senha' id='pass'  required />
 										<div class='invalid-feedback'>
 										Senha invalida.
 										</div>

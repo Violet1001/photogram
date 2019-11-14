@@ -5,7 +5,7 @@
 	<body onload="myFunction()" style="margin:0;">
 	<?php include('loading.inc') ?>
 <?php
-	session_start();
+	include("menu.inc");
 	if(isset($_SESSION["validado"])){
 		header("Location:index.php");
 	}
