@@ -22,9 +22,8 @@ $(function(){
 		$.ajax({
 			url:"remover.php",
 			data:{nome_imagem:}
-		});*/
-		
-	});
+		});	
+	});*/
 	$(document).on("click","#filtrar",function(){
 		$.ajax({
 			url:"carrega_foto.php",

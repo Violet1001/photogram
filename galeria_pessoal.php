@@ -27,9 +27,6 @@
 				</div>
 			</div>
 			<div id="fotos_galeria" class="mt-2"></div>
-				<div class="btn-toolbar" role="toolbar" aria-label="Toolbar com grupos de botões">
-					<div class="btn-group mr-2" role="group" aria-label="Primeiro grupo"></div>
-				</div>
 		</div>
 	</body>
 </html>
