@@ -5,19 +5,26 @@ $(function(){
 		$.ajax({
 			url:"carrega_foto.php",
 			type:"get",
-			data:{pg:"home"},
+			data:{pg:"galeria"},
 			success:function(a){
 				var fotos="<br/>";
 				console.log(a);
 				var i=0;
 				for(i=0;a.length>i;i++){
 					fotos+="<img src='./imagens/"+a[i]+"' class='m-3' style='width:15%;'/>";
+					fotos+="<button id='apagar_imagem' class='btn_excluir btn rounded' valor='"+a[i]+"' style='width:50px;'><img src='./imagens/apagar.jpg' class='w-100'/></button>";
 				}
-				$("#fotos_home").html(fotos);
+				$("#fotos_galeria").html(fotos);
 			}
 		});
 	}
-	
+	/*$(document).on("click",".btn_excluir",function(){
+		$.ajax({
+			url:"remover.php",
+			data:{nome_imagem:}
+		});*/
+		
+	});
 	$(document).on("click","#filtrar",function(){
 		$.ajax({
 			url:"carrega_foto.php",

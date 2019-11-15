@@ -11,6 +11,7 @@
 	while($linha=mysqli_fetch_assoc($resultado)){
 		if($linha["usuario"]==$usuario && $linha["senha"]==$senha){
 			$_SESSION["validado"]=1;
+			$_SESSION["user"]=$_POST["usuario"];
 		}
 	}
 	header("Location:index.php");

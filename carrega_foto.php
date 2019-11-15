@@ -1,8 +1,39 @@
 <?php
 	include("conexao.php");
 	header("Content-type:application/json");
+	session_start();
 
 	$sql="SELECT * FROM imagem";
+	
+	if(!empty($_GET) && isset($_SESSION["user"])){
+		if($_GET["pg"]=="galeria"){
+			$nome_usuario=$_SESSION["user"];
+
+			$consulta_usuario="SELECT id_usuario from cadastro WHERE usuario='$nome_usuario'";
+			$resultado=mysqli_query($conexao,$consulta_usuario);
+
+			$linha=mysqli_fetch_assoc($resultado);	
+			$id=$linha["id_usuario"];
+
+			$sql="SELECT * FROM imagem WHERE id_usuario=$id";
+			$resultado=mysqli_query($conexao,$sql);
+
+			while($linha=mysqli_fetch_assoc($resultado)){
+				$matriz[]=$linha["nome_imagem"];
+			}
+			echo json_encode($matriz);
+			die();
+		}
+		elseif($_GET["pg"]=="home"){
+			$resultado=mysqli_query($conexao,$sql);
+
+			while($linha=mysqli_fetch_assoc($resultado)){
+				$matriz[]=$linha["nome_imagem"];
+			}
+			echo json_encode($matriz);
+			die();
+		}
+	}
 
 	if(!empty($_POST)){
 		if(isset($_POST["filtro_nome"])){

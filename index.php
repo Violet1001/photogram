@@ -3,7 +3,6 @@
 		<title>Home</title>
 	</head>
 	<body onload="myFunction()" style="margin:0;">
-		
 		<?php include("loading.inc") ?>
 		<div class="container-fluid">
 			<h1>Photogram</h1>
@@ -28,9 +27,12 @@
 				</div>
 			</div>
 			<div id="fotos_home" class="mt-2"></div>
+			<div id="paginacao">
+				<div class="btn-toolbar" role="toolbar">
+					<div class="btn-group mr-2" role="group" id="botoes"></div>
+				</div>
+			</div>
 		</div>
 		</div>
-		
-		
 	</body>
 </html>
