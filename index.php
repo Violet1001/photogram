@@ -27,12 +27,13 @@
 				</div>
 			</div>
 			<div id="fotos_home" class="mt-2"></div>
-			<div id="paginacao">
+			<div id='paginacao' class='text-center'>
 				<div class="btn-toolbar" role="toolbar">
-					<div class="btn-group mr-2" role="group" id="botoes"></div>
+					<div class="btn-group mr-2" role="group">
+						<?include("paginacao.php")?>
+					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</body>
 </html>
