@@ -1,11 +1,11 @@
 p=null;
 $(function(){
-	carrega_fotos();
-	function carrega_fotos(){
+	carrega_fotos(0);
+	function carrega_fotos(p){
 		$.ajax({
 			url:"carrega_foto.php",
 			type:"get",
-			data:{pg:"home"},
+			data:{pg:"home",pagina:p},
 			success:function(a){
 				var fotos="<br/>";
 				console.log(a);
@@ -17,7 +17,13 @@ $(function(){
 			}
 		});
 	}
-	
+	//paginacao
+	$(document).on("click",".btn_pagina",function(){
+		p=$(this).val()-1;
+		pg=p*5;
+
+		carrega_fotos(pg);
+	});
 	$(document).on("click","#filtrar",function(){
 		$.ajax({
 			url:"carrega_foto.php",

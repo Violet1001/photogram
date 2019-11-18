@@ -17,6 +17,6 @@
 
 	while($i<$qtd_botoes){
 		$i++;
-		echo"<button type='button' class='btn_pagina btn btn_secondary' value='$i'>$i</button> ";
+		echo"<button type='button' class='btn_pagina btn btn-secondary' value='$i'>$i</button> ";
 	}
 ?>

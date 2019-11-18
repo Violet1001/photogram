@@ -1,12 +1,12 @@
-<?php include("head.inc") ?>
+<?include("head.inc")?>
 		<script src="index.js"></script>
 		<title>Home</title>
 	</head>
 	<body onload="myFunction()" style="margin:0;">
-		<?php include("loading.inc") ?>
+		<?include("loading.inc")?>
 		<div class="container-fluid">
 			<h1>Photogram</h1>
-			<?php include("menu.inc") ?>
+			<?include("menu.inc")?>
 				<br/>
 			<div id="filtro">
 				<div id="opcoes">
@@ -27,8 +27,9 @@
 				</div>
 			</div>
 			<div id="fotos_home" class="mt-2"></div>
-			<div id='paginacao' class='text-center'>
+			<div id="paginacao" class="container">
 				<div class="btn-toolbar" role="toolbar">
+					<div class="col-md-5"></div>
 					<div class="btn-group mr-2" role="group">
 						<?include("paginacao.php")?>
 					</div>

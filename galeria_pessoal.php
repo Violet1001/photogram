@@ -12,6 +12,7 @@
 				<div id="opcoes">
 					<input type="text" name="filtro_nome" id="filtro_nome" placeholder="pesquisar por nome..."/>  
 					<select name="filtro_tipo">
+						<option></option>
 						<option value="paisagem">Paisagem</option>
 						<option value="meme">Memes</option>
 						<option value="pessoa">Pessoas</option>
@@ -26,11 +27,13 @@
 				</div>
 			</div>
 			<div id="fotos_galeria" class="mt-2"></div>
+			<div id="paginacao" class="container">
 				<div class="btn-toolbar" role="toolbar" aria-label="Toolbar com grupos de botões">
+					<div class="col-md-5"></div>
 					<div class="btn-group mr-2" role="group" aria-label="Primeiro grupo">
 						<?include("paginacao.php")?>
 					</div>
 				</div>
-		</div>
+			</div>
 	</body>
 </html>
