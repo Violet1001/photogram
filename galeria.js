@@ -1,24 +1,36 @@
 p=null;
 $(function(){
 	carrega_fotos(0);
+	paginacao();
 	function carrega_fotos(p){
 		$.ajax({
 			url:"carrega_foto.php",
 			type:"get",
 			data:{pg:"galeria",pagina:p},
 			success:function(a){
-				var fotos="<br/>";
 				console.log(a);
+				var fotos="<br/>";
 				var i=0;
 				for(i=0;a.length>i;i++){
 					fotos+="<img src='./imagens/"+a[i]+"' class='m-3' style='width:15%;'/>";
-					fotos+="<button id='apagar_imagem' class='btn_excluir btn rounded' valor='"+a[i]+"' style='width:50px;'><img src='./imagens/apagar.jpg' class='w-100'/></button>";
+					fotos+="<button id='apagar_imagem' class='btn_excluir btn' valor='"+a[i]+"' style='width:50px;'><img src='./imagens/apagar.jpg' class='w-100'/></button>";
 				}
 				$("#fotos_galeria").html(fotos);
 			}
 		});
 	}
 	//paginacao
+	function paginacao(){
+		$.ajax({
+			url:"paginacao.php",
+			type:"get",
+			data:{pg:"galeria"},
+			success:function(a){
+				console.log(a);
+				$("#paginacao").html(a);
+			}
+		});
+	}
 	$(document).on("click",".btn_pagina",function(){
 		p=$(this).val()-1;
 		pg=p*5;

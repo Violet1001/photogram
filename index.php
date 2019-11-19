@@ -30,9 +30,7 @@
 			<div id="paginacao" class="container">
 				<div class="btn-toolbar" role="toolbar">
 					<div class="col-md-5"></div>
-					<div class="btn-group mr-2" role="group">
-						<?include("paginacao.php")?>
-					</div>
+					<div class="btn-group mr-2" role="group"></div>
 				</div>
 			</div>
 		</div>

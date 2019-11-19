@@ -30,9 +30,7 @@
 			<div id="paginacao" class="container">
 				<div class="btn-toolbar" role="toolbar" aria-label="Toolbar com grupos de botões">
 					<div class="col-md-5"></div>
-					<div class="btn-group mr-2" role="group" aria-label="Primeiro grupo">
-						<?include("paginacao.php")?>
-					</div>
+					<div class="btn-group mr-2" role="group" aria-label="Primeiro grupo"></div>
 				</div>
 			</div>
 	</body>

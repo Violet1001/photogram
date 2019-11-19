@@ -4,8 +4,8 @@
 	session_start();
 
 	$sql="SELECT * FROM imagem";
-	$p=0;
-	$_GET["pg"]="galeria";
+	$p=$_GET["pagina"];
+	
 	if(!empty($_GET) && isset($_SESSION["user"])){
 		if($_GET["pg"]=="galeria"){
 			$nome_usuario=$_SESSION["user"];
