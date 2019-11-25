@@ -1,17 +1,17 @@
 <?php
 	include("conexao.php");
 	header("Content-type:application/json");
+	session_start();
 
-	$consulta="SELECT id_usuario FROM cadastro WHERE usuario='".$_SESSION['user']."'";
-
-	$resultado=mysqli_query($conexao,$consulta);	
-	$linha=mysqli_fetch_assoc($resultado);
-	$id=$llinha;
-
+	if(isset($_SESSION["user"])){
+		$consulta="SELECT id_usuario FROM cadastro WHERE usuario='".$_SESSION["user"]."'";
+	
+		$resultado=mysqli_query($conexao,$consulta);	
+		$linha=mysqli_fetch_assoc($resultado);
+		$id=$linha["id_usuario"];
+	}
 	if(!empty($_GET)){
-		$sql="SELECT COUNT(*) as 'qtd' FROM imagem WHERE";
-
-		$sql.=" id_usuario='$id'";
+		$sql="SELECT COUNT(*) as 'qtd' FROM imagem WHERE id_usuario='$id'";
 		$resultado=mysqli_query($conexao,$sql);
 
 		$linha=mysqli_fetch_assoc($resultado);
@@ -22,12 +22,13 @@
 
 		while($i<$qtd_botoes){
 			$i++;
-			$matriz[$cont]="<button type='button' class='btn_pagina btn btn-secondary' value='$i'>$i</button> ";
-			$cont++;
+			$matriz[]="<button type='button' class='btn_pagina btn btn-secondary' value='$i'>$i</button> ";
 		}
+
 		echo json_encode($matriz);
 		die();
 	}
+
 	$sql="SELECT COUNT(*) as 'qtd' FROM imagem";
 
 	$resultado=mysqli_query($conexao,$sql);
@@ -40,6 +41,7 @@
 
 	while($i<$qtd_botoes){
 		$i++;
-		echo "<button type='button' class='btn_pagina btn btn-secondary' value='$i'>$i</button> ";
+		$matriz[]="<button type='button' class='btn_pagina btn btn-secondary' value='$i'>$i</button> ";
 	}
+	echo json_encode($matriz);
 ?>

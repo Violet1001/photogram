@@ -1,7 +1,6 @@
 p=null;
 $(function(){
 	carrega_fotos(0);
-	paginacao();
 	function carrega_fotos(p){
 		$.ajax({
 			url:"carrega_foto.php",
@@ -12,7 +11,7 @@ $(function(){
 				var fotos="<br/>";
 				var i=0;
 				for(i=0;a.length>i;i++){
-					fotos+="<img src='./imagens/"+a[i]+"' class='m-3' style='width:15%;'/>";
+					fotos+="<img src='./imagens/"+a[i]+"' valor='"+a[i]+"' class='m-3' style='width:15%;'/>";
 					fotos+="<button id='apagar_imagem' class='btn_excluir btn' valor='"+a[i]+"' style='width:50px;'><img src='./imagens/apagar.jpg' class='w-100'/></button>";
 				}
 				$("#fotos_galeria").html(fotos);
@@ -20,14 +19,15 @@ $(function(){
 		});
 	}
 	//paginacao
-	function paginacao(){
+	botoes_paginacao();
+	function botoes_paginacao(){
 		$.ajax({
 			url:"paginacao.php",
 			type:"get",
 			data:{pg:"galeria"},
 			success:function(a){
 				console.log(a);
-				$("#paginacao").html(a);
+				$("#btn_paginacao").html(a);
 			}
 		});
 	}
@@ -37,12 +37,17 @@ $(function(){
 
 		carrega_fotos(pg);
 	});
-	/*$(document).on("click",".btn_excluir",function(){
+	$(document).on("click",".btn_excluir",function(){
+		var o=$(this).attr("valor");
 		$.ajax({
 			url:"remover.php",
-			data:{nome_imagem:}
-		});	
-	});*/
+			type:"post",
+			data:{nome_imagem:o},
+			success:function(){
+				alert($(this).closest("img").attr("valor"));
+			}
+		});
+	});
 	$(document).on("click","#filtrar",function(){
 		$.ajax({
 			url:"carrega_foto.php",
@@ -54,7 +59,7 @@ $(function(){
 					console.log(matriz);
 					var fotos="<br/>";
 					for(i=0;matriz.length>i;i++){
-						fotos+="<img src='./imagens/"+matriz[i]+"' class='m-3' style='width:15%;'/>";
+						fotos+="<img src='./imagens/"+matriz[i].nome_imagem+"' valor='"+matriz[i].nome_imagem+"' class='m-3' style='width:15%;'/>";
 					}
 					p=$("#opcoes").html();
 					$("#fotos_home").html(fotos);

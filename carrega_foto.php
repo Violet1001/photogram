@@ -1,12 +1,15 @@
 <?php
 	include("conexao.php");
-	header("Content-type:application/json");
 	session_start();
+	header("Content-type:application/json");
 
 	$sql="SELECT * FROM imagem";
-	$p=$_GET["pagina"];
-	
-	if(!empty($_GET) && isset($_SESSION["user"])){
+
+	if(isset($_GET["pagina"])){
+		$p=$_GET["pagina"];
+	}
+
+	if(!empty($_GET) && isset($_SESSION["user"]) && empty($_POST)){
 		if($_GET["pg"]=="galeria"){
 			$nome_usuario=$_SESSION["user"];
 
@@ -17,6 +20,7 @@
 			$id=$linha["id_usuario"];
 
 			$sql="SELECT * FROM imagem WHERE id_usuario='$id' LIMIT $p,5";
+
 			$resultado=mysqli_query($conexao,$sql);
 
 			while($linha=mysqli_fetch_assoc($resultado)){
@@ -26,8 +30,9 @@
 			echo json_encode($matriz);
 			die();
 		}
-		elseif($_GET["pg"]=="home"){
+		elseif($_GET["pg"]=="home" && empty($_POST)){
 			$sql .= " LIMIT $p,5";
+
 			$resultado=mysqli_query($conexao,$sql);
 
 			while($linha=mysqli_fetch_assoc($resultado)){
@@ -75,11 +80,12 @@
 			$sql .= " WHERE tipo like '%$tipo%'";
 		}
 	}
-	$sql.= " LIMIT $p,5";
+	$sql.=" LIMIT $p,5";
 	$resultado=mysqli_query($conexao,$sql);
 
 	while($linha=mysqli_fetch_assoc($resultado)){
-		$matriz[]=$linha["nome_imagem"];
+		$matriz[]=$linha;
 	}
+
 	echo json_encode($matriz);
 ?>

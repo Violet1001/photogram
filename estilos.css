@@ -1,3 +1,29 @@
+body{
+	background-image: url("imagens/camera_fundo.jpg");
+	background-size: 200px 200px;
+}
+
+.container{
+	background: rgba(255,255,255,0.8);
+	margin-top: 12px;
+	border-radius: 5px;
+}
+
+.inputis{
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+.btn_filtrar{
+	border: 1px solid lightgray;
+	background-color: transparent;
+	border-radius: 5px;
+	width: 90px;
+}
+
+.btn_filtrar:hover{background-color:gray; color:white;}
+
 #loader {
 		position: absolute;
 		left: 50%;

@@ -4,15 +4,17 @@
 	</head>
 	<body onload="myFunction()" style="margin:0;">
 		<?include("loading.inc")?>
-		<div class="container-fluid">
+		<div class="container">
+			<div class="bg"></div>
 			<h1>Photogram</h1>
 			<?include("menu.inc")?>
 				<br/>
 			<div id="filtro">
 				<div id="opcoes">
-				<input type="text" name="filtro_nome" id="filtro_nome" placeholder="pesquisar por nome..."/>  
-				<select name="filtro_tipo">
+				<input type="text" class="inputis" name="filtro_nome" id="filtro_nome" placeholder="Nome..."/>  
+				<select name="filtro_tipo" class="inputis" style="height:27px;">
 					<option></option>
+					<option selected>Tipo...</option>
 					<option value="paisagem">Paisagem</option>
 					<option value="meme">Memes</option>
 					<option value="pessoa">Pessoas</option>
@@ -21,16 +23,16 @@
 					<option value="decoracao">Decoração</option>
 					<option value="outro">Outro</option>
 				</select>
-				Data entre: <input type="date" name="filtro_data_a" id="filtro_data_a"/> e
-				<input type="date" name="filtro_data_b" id="filtro_data_b"/>
-				<button id="filtrar">Filtrar</button>
+				Data entre: <input type="date" class="inputis" name="filtro_data_a" id="filtro_data_a"/> e
+				<input type="date" class="inputis" name="filtro_data_b" id="filtro_data_b"/>
+				<button class="btn_filtrar">Filtrar</button>
 				</div>
 			</div>
 			<div id="fotos_home" class="mt-2"></div>
 			<div id="paginacao" class="container">
 				<div class="btn-toolbar" role="toolbar">
 					<div class="col-md-5"></div>
-					<div class="btn-group mr-2" role="group"></div>
+					<div id="btn_paginacao" class="btn-group mr-2" role="group"></div>
 				</div>
 			</div>
 		</div>
