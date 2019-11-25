@@ -1,9 +1,9 @@
-<?include("head.inc");?>
+<?php include("head.inc"); ?>
 		<script src='cadastro.js'></script>
 		<title>Cadastro</title>
 	</head>
 	<body onload="myFunction()" style="margin:0;">
-	<?include("loading.inc")?>
+	<?php include("loading.inc") ?>
 <?php
 	include("menu.inc");
 	if(isset($_SESSION["validado"])){

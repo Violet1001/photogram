@@ -1,13 +1,13 @@
-<?include("head.inc")?>
+<?php include("head.inc") ?>
 		<script src="index.js"></script>
 		<title>Home</title>
 	</head>
 	<body onload="myFunction()" style="margin:0;">
-		<?include("loading.inc")?>
+		<?php include("loading.inc") ?>
 		<div class="container">
 			<div class="bg"></div>
 			<h1>Photogram</h1>
-			<?include("menu.inc")?>
+			<?php include("menu.inc") ?>
 				<br/>
 			<div id="filtro">
 				<div id="opcoes">
@@ -28,7 +28,7 @@
 				<button class="btn_filtrar">Filtrar</button>
 				</div>
 			</div>
-			<div id="fotos_home" class="mt-2"></div>
+			<div id="fotos_home" class="mt-2 row"></div>
 			<div id="paginacao" class="container">
 				<div class="btn-toolbar" role="toolbar">
 					<div class="col-md-5"></div>
