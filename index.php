@@ -7,12 +7,7 @@
 		<div class="container">
 			<img src="imagens/photogram.png" style="height:100px;" />
 			<div class="bg"></div>
-<<<<<<< HEAD
-			<?include("menu.inc")?>
-=======
-			<h1>Photogram</h1>
 			<?php include("menu.inc") ?>
->>>>>>> b7faa64679d39070f35f9005a312364128bac46e
 				<br/>
 			<div id="filtro">
 				<div id="opcoes">
@@ -33,13 +28,9 @@
 				<button class="btn_filtrar">Filtrar</button>
 				</div>
 			</div>
-<<<<<<< HEAD
-			<div id="fotos_home" class="mt-2"></div>
-			<div id="paginacao">
-=======
+
 			<div id="fotos_home" class="mt-2 row"></div>
 			<div id="paginacao" class="container">
->>>>>>> b7faa64679d39070f35f9005a312364128bac46e
 				<div class="btn-toolbar" role="toolbar">
 					<div class="col-md-5"></div>
 					<div id="btn_paginacao" class="btn-group mr-2" role="group"></div>

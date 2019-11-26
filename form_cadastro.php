@@ -3,13 +3,10 @@
 		<title>Cadastro</title>
 	</head>
 	<body onload="myFunction()" style="margin:0;">
-<<<<<<< HEAD
-	<img src="imagens/photogram.png" style="height:100px;" />
-	<?include("loading.inc")?>
-=======
-	<?php include("loading.inc") ?>
->>>>>>> b7faa64679d39070f35f9005a312364128bac46e
+		<img src="imagens/photogram.png" style="height:100px;"/>
+
 <?php
+	include("loading.inc");
 	include("menu.inc");
 	if(isset($_SESSION["validado"])){
 		header("Location:index.php");
