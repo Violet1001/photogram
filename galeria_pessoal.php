@@ -5,6 +5,7 @@
 	<body onload="myFunction()" style="margin:0;">
 		<?include("loading.inc")?>
 		<div class="container">
+			<img src="imagens/photogram.png" style="height:100px;" />
 			<h1>Galeria</h1>
 			<?include("menu.inc")?>
 				<br/>

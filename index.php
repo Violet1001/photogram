@@ -5,8 +5,8 @@
 	<body onload="myFunction()" style="margin:0;">
 		<?include("loading.inc")?>
 		<div class="container">
+			<img src="imagens/photogram.png" style="height:100px;" />
 			<div class="bg"></div>
-			<h1>Photogram</h1>
 			<?include("menu.inc")?>
 				<br/>
 			<div id="filtro">
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 			<div id="fotos_home" class="mt-2"></div>
-			<div id="paginacao" class="container">
+			<div id="paginacao">
 				<div class="btn-toolbar" role="toolbar">
 					<div class="col-md-5"></div>
 					<div id="btn_paginacao" class="btn-group mr-2" role="group"></div>

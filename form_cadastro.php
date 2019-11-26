@@ -3,6 +3,7 @@
 		<title>Cadastro</title>
 	</head>
 	<body onload="myFunction()" style="margin:0;">
+	<img src="imagens/photogram.png" style="height:100px;" />
 	<?include("loading.inc")?>
 <?php
 	include("menu.inc");

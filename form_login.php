@@ -5,6 +5,7 @@
 <body onload="myFunction()" style="margin:0;">
 	<div class="container-fluid">
 		<?php include("loading.inc") ?>
+			<img src="imagens/photogram.png" style="height:100px;" />
 			<div class='text-center'>
 			<h1>Login</h1>
 			<?php

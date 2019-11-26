@@ -2,7 +2,7 @@
 	if(isset($_SESSION["validado"]) && !empty($_SESSION["validado"])){
 		echo"<div class='container'>
 		<div id='perfil' class='float-right'>
-			<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+			<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' style='color:#401f0e;margin-top:10px;'>
 				Perfil
 			</a>
 			<div class='dropdown-menu' aria-labelledby='navbarDropdown'>
