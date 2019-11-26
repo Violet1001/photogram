@@ -1,13 +1,13 @@
-<?include("head.inc")?>
+<?php include("head.inc") ?>
 		<script src="galeria.js"></script>
 		<title>Galeria</title>
 	</head>
 	<body onload="myFunction()" style="margin:0;">
-		<?include("loading.inc")?>
+		<?php include("loading.inc") ?>
 		<div class="container">
 			<img src="imagens/photogram.png" style="height:100px;" />
 			<h1>Galeria</h1>
-			<?include("menu.inc")?>
+			<?php include("menu.inc") ?>
 				<br/>
 			<div id="filtro">
 				<div id="opcoes">

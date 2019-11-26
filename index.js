@@ -12,9 +12,10 @@ $(function(){
 				var fotos="<br/>";
 				var i=0;
 				for(i=0;a.length>i;i++){
-					fotos+="<img src='./imagens/"+a[i]+"' valor='"+a[i]+"' class='m-3' style='width:15%;'/>";
+					fotos+="<div class='col-lg-4'><img src='./imagens/"+a[i]+"' valor='"+a[i]+"' class='m-3 w-50'/></div>";
 				}
-				$("#fotos_home").html(fotos);
+				$("#fotos_home").html("");
+				$("#fotos_home").append(fotos);
 			}
 		});
 	}
