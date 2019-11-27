@@ -1,47 +1,76 @@
 <?php
+	header("Content-type:application/json");
 	include("conexao.php");
 	session_start();
-	header("Content-type:application/json");
 
 	$sql="SELECT * FROM imagem";
-
+	$p=0;
 	if(isset($_GET["pagina"])){
 		$p=$_GET["pagina"];
 	}
 
-	if(!empty($_GET) && isset($_SESSION["user"]) && empty($_POST)){
-		if($_GET["pg"]=="galeria"){
-			$nome_usuario=$_SESSION["user"];
+	if(isset($_SESSION) && !empty($_SESSION["user"]) && empty($_POST)){
+		if(!empty($_GET["pg"])){
+			if($_GET["pg"]=="galeria"){
+				$nome_usuario=$_SESSION["user"];
 
-			$consulta_usuario="SELECT id_usuario FROM cadastro WHERE usuario='$nome_usuario'";
-			$resultado=mysqli_query($conexao,$consulta_usuario);
+				if(isset($_GET["filtro_nome"])){
+					$nome=$_GET["filtro_nome"];
+				}
+				if(isset($_GET["filtro_tipo"])){
+					$tipo=$_GET["filtro_tipo"];
+				}
+				if(isset($_GET["filtro_data_a"])){
+					$data_a=$_GET["filtro_data_a"];
+				}
+				if(isset($_GET["filtro_data_b"])){
+					$data_b=$_GET["filtro_data_b"];
+				}
 
-			$linha=mysqli_fetch_assoc($resultado);
-			$id=$linha["id_usuario"];
+				$consulta_usuario="SELECT id_usuario FROM cadastro WHERE usuario='$nome_usuario'";
+				$resultado=mysqli_query($conexao,$consulta_usuario);
+				
+				$linha=mysqli_fetch_assoc($resultado);
+				$id=$linha["id_usuario"];
 
-			$sql="SELECT * FROM imagem WHERE id_usuario='$id' LIMIT $p,5";
+				$sql="SELECT * FROM imagem WHERE id_usuario='$id' LIMIT $p,5";
 
-			$resultado=mysqli_query($conexao,$sql);
+				$resultado=mysqli_query($conexao,$sql);
 
-			while($linha=mysqli_fetch_assoc($resultado)){
-				$matriz[]=$linha["nome_imagem"];
+				while($linha=mysqli_fetch_assoc($resultado)){
+					$matriz[]=$linha["nome_imagem"];
+				}
+
+				echo json_encode($matriz);
+				die();
 			}
+			elseif($_GET["pg"]=="home" && empty($_POST)){
+				if(isset($_GET["filtro_nome"])){
+					$nome=$_GET["filtro_nome"];
+				}
+				if(isset($_GET["filtro_tipo"])){
+					$tipo=$_GET["filtro_tipo"];
+				}
+				if(isset($_GET["filtro_data_a"])){
+					$data_a=$_GET["filtro_data_a"];
+				}
+				if(isset($_GET["filtro_data_b"])){
+					$data_b=$_GET["filtro_data_b"];
+				}
 
-			echo json_encode($matriz);
-			die();
-		}
-		elseif($_GET["pg"]=="home" && empty($_POST)){
-			$sql .= " LIMIT $p,5";
+				$sql .= " LIMIT $p,5";
 
-			$resultado=mysqli_query($conexao,$sql);
+				$resultado=mysqli_query($conexao,$sql);
 
-			while($linha=mysqli_fetch_assoc($resultado)){
-				$matriz[]=$linha["nome_imagem"];
+				while($linha=mysqli_fetch_assoc($resultado)){
+					$matriz[]=$linha["nome_imagem"];
+				}
+
+				echo json_encode($matriz);
+				die();
 			}
-
-			echo json_encode($matriz);
-			die();
 		}
+
 	}
 
 	if(!empty($_POST)){
@@ -79,12 +108,18 @@
 		elseif(isset($tipo) && !empty($tipo)){
 			$sql .= " WHERE tipo like '%$tipo%'";
 		}
+		elseif(isset($data_a) && !empty($data_a) && !isset($data_b)){
+			$sql .= " WHERE data = '%$data_a%'";
+		}
+		elseif(isset($data_b) && !empty($data_b) && !isset($data_a)){
+			$sql .= " WHERE data = '%$data_b%'";
+		}
 	}
 	$sql.=" LIMIT $p,5";
 	$resultado=mysqli_query($conexao,$sql);
 
 	while($linha=mysqli_fetch_assoc($resultado)){
-		$matriz[]=$linha;
+		$matriz[]=$linha["nome_imagem"];
 	}
 
 	echo json_encode($matriz);
