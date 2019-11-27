@@ -1,10 +1,5 @@
-<?php include("loading.inc") ?>
 <?php
-	session_start();
-	if(!isset($_SESSION["validado"]) && empty($_SESSION["validado"])){
-		sleep(1);
-		header("Location:index.php");
-	}
+	include("loading.inc");
 	include("conexao.php");
 	include("head.inc");
 ?>
@@ -14,13 +9,17 @@
 
 <body onload="myFunction()" style="margin:0;">
 	<div class="container border">
-		<?php include("perfil_icone.inc") ?>
-
+		
 		<div id="informacoes" class="text-center">
 			<img src="imagens/photogram.png" style="height:100px;" />
 			<h2>Informações do Perfil</h2>
-				<br/><br/>
 			<?php
+				include("menu.inc");
+				if(!isset($_SESSION["validado"]) && empty($_SESSION["validado"])){
+					sleep(1);
+					header("Location:index.php");
+				}
+
 				$consulta="SELECT * FROM cadastro WHERE usuario='".$_SESSION["user"]."'";
 				$resultado=mysqli_query($conexao,$consulta);
 				
