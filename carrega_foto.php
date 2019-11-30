@@ -44,7 +44,7 @@
 				echo json_encode($matriz);
 				die();
 			}
-			elseif($_GET["pg"]=="home" && empty($_POST)){
+			elseif($_GET["pg"]=="home"){
 				if(isset($_GET["filtro_nome"])){
 					$nome=$_GET["filtro_nome"];
 				}
@@ -87,6 +87,54 @@
 			$data_b=$_POST["filtro_data_b"];
 		}
 
+		//se estiver logado
+		if(isset($_SESSION["validado"])){
+			$nome_usuario=$_SESSION["user"];
+
+			$consulta_usuario="SELECT id_usuario FROM cadastro WHERE usuario='$nome_usuario'";
+			$resultado=mysqli_query($conexao,$consulta_usuario);
+
+			$linha=mysqli_fetch_assoc($resultado);
+			$id=$linha["id_usuario"];
+
+			if((isset($nome) && isset($tipo) && isset($data_a) && isset($data_b)) && (!empty($nome) && !empty($tipo) && !empty($data_a) && !empty($data_b))){
+				$sql .= " WHERE nome_imagem like '%$nome%' AND tipo like '%$tipo%' and data BETWEEN '$data_a' AND '$data_b' AND id_usuario='$id'";
+			}
+			elseif((isset($nome) && isset($data_a) && isset($data_b)) && (!empty($nome) && !empty($data_a) && !empty($data_b))){
+				$sql .= " WHERE nome_imagem like '%$nome%' AND data BETWEEN '$data_a' AND '$data_b' AND id_usuario='$id'";
+			}
+			elseif((isset($nome) && isset($tipo)) && (!empty($nome) && !empty($tipo))){
+				$sql .= " WHERE nome_imagem like '%$nome%' AND tipo like '%$tipo%' AND id_usuario='$id'";
+			}
+			elseif((isset($data) && isset($tipo)) && (!empty($data) && !empty($tipo))){
+				$sql .= " WHERE data BETWEEN '$data_a' AND '$data_b' AND tipo like '%$tipo%' AND id_usuario='$id'";
+			}
+			elseif(isset($nome) && !empty($nome)){
+				$sql .= " WHERE nome_imagem like '%$nome%' AND id_usuario='$id'";
+			}
+			elseif((isset($data_a) && isset($data_b)) && (!empty($data_a) && !empty($data_b))){
+				$sql .= " WHERE data BETWEEN '$data_a' AND '$data_b' AND id_usuario='$id'";
+			}
+			elseif(isset($tipo) && !empty($tipo)){
+				$sql .= " WHERE tipo like '%$tipo%' AND id_usuario='$id'";
+			}
+			elseif(isset($data_a) && !empty($data_a) && !isset($data_b)){
+				$sql .= " WHERE data = '%$data_a%' AND id_usuario='$id'";
+			}
+			elseif(isset($data_b) && !empty($data_b) && !isset($data_a)){
+				$sql .= " WHERE data = '%$data_b%' AND id_usuario='$id'";
+			}
+			$sql.=" LIMIT $p,5";
+			$resultado=mysqli_query($conexao,$sql);
+
+			while($linha=mysqli_fetch_assoc($resultado)){
+				$matriz[]=$linha["nome_imagem"];
+			}
+
+			echo json_encode($matriz);
+			die();
+		}
+		//se não estiver logado
 		if((isset($nome) && isset($tipo) && isset($data_a) && isset($data_b)) && (!empty($nome) && !empty($tipo) && !empty($data_a) && !empty($data_b))){
 			$sql .= " WHERE nome_imagem like '%$nome%' AND tipo like '%$tipo%' and data BETWEEN '$data_a' AND '$data_b'";
 		}
@@ -109,10 +157,10 @@
 			$sql .= " WHERE tipo like '%$tipo%'";
 		}
 		elseif(isset($data_a) && !empty($data_a) && !isset($data_b)){
-			$sql .= " WHERE data = '%$data_a%'";
+			$sql .= " WHERE data='%$data_a%'";
 		}
 		elseif(isset($data_b) && !empty($data_b) && !isset($data_a)){
-			$sql .= " WHERE data = '%$data_b%'";
+			$sql .= " WHERE data='%$data_b%'";
 		}
 	}
 	$sql.=" LIMIT $p,5";

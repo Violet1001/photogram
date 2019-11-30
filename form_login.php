@@ -19,16 +19,13 @@
 									<div class='invalid-feedback'>
 									Login invalido.
 									</div>
-
 											<br/>
-
 									<label for='pass' for='validationCustom02'>Senha: </label>
-										<input type='password' class='form-control' id='validationCustom02' placeholder='Senha......' name = 'senha' id='pass'  required />
+										<input type='password' class='form-control' id='validationCustom02' placeholder='Senha......' name='senha' id='pass'  required />
 									<div class='invalid-feedback'>
 									Senha invalida.
 									</div>
 										<br/>
-
 										<small><a href='form_cadastro.php' class='text-primary' style='text-align:center; text-decoration:underline;'>Nao possui cadastro? Registre-se</a></small>
 											<br/>
 									<input type='submit' name='enviar' class='mt-3' value='Entrar'/>
@@ -38,7 +35,7 @@
 				}	
 				else{
 					sleep(1);
-					header("Location: index.php");
+					header("Location:index.php");
 				}
 			?>
 			</div>

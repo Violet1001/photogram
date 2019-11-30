@@ -2,6 +2,18 @@
 	include("conexao.php");
 	header("Content-type:application/json");
 	session_start();
+	if(isset($_GET["filtro_data_a"])){
+		$filtro_data_a=$_GET["filtro_data_a"];
+	}
+	if(isset($_GET["filtro_data_b"])){
+		$filtro_data_b=$_GET["filtro_data_b"];
+	}
+	if(isset($_GET["filtro_nome"])){
+		$filtro_nome=$_GET["filtro_nome"];
+	}
+	if(isset($_GET["filtro_tipo"])){
+		$filtro_tipo=$_GET["filtro_tipo"];
+	}
 
 	if(isset($_SESSION["user"])){
 		$consulta="SELECT id_usuario FROM cadastro WHERE usuario='".$_SESSION["user"]."'";

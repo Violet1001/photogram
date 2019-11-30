@@ -1,4 +1,9 @@
 p=null;
+filtro_data_a="";
+filtro_data_b="";
+filtro_nome="";
+filtro_tipo="";
+filtrado=1;
 $(function(){
 	carrega_fotos(0);
 	function carrega_fotos(p){
@@ -24,9 +29,11 @@ $(function(){
 		$.ajax({
 			url:"paginacao.php",
 			type:"get",
-			data:{pg:"galeria"},
+			data:
+			{
+				pg:"galeria",filtro_nome:filtro_nome,filtro_tipo:filtro_tipo,filtro_data_a:filtro_data_a,filtro_data_b:filtro_data_b,filtrado:filtrado
+			},
 			success:function(a){
-				console.log(a);
 				$("#btn_paginacao").html(a);
 			}
 		});
@@ -49,10 +56,17 @@ $(function(){
 		});
 	});
 	$(document).on("click","#filtrar",function(){
+		filtro_data_a=$("#filtro_data_a").val();
+		filtro_data_b= $("#filtro_data_b").val();
+		filtro_nome=$("#filtro_nome").val();
+		filtro_tipo=$("select[name='filtro_tipo']").val();
 		$.ajax({
 			url:"carrega_foto.php",
 			type:"post",
-			data: {filtro_nome: $("#filtro_nome").val(), filtro_tipo: $("select[name='filtro_tipo']").val(),filtro_data_a: $("#filtro_data_a").val(),filtro_data_b: $("#filtro_data_b").val()},
+			data:
+			{
+				filtro_nome:filtro_nome,filtro_tipo:filtro_tipo,filtro_data_a:filtro_data_a,filtro_data_b:filtro_data_b
+			},
 			success:function(matriz){
 				if(matriz.length>0){
 					var i=0;
@@ -70,6 +84,9 @@ $(function(){
 				else{
 					carrega_fotos(0);
 				}
+			},
+			error:function(h){
+				console.log("erro");
 			}
 		});
 	});

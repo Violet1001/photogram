@@ -42,14 +42,14 @@
 			<label>Votou esta semana?</label>
 			<?php
 				if($voto=="sim"){
-					echo "<input type='radio' name='voto' value='sim' checked='checked' disabled='disabled'/>Sim <input type='radio' name='voto' value='nao' disabled='disabled'/>Não";
+					echo " <input type='radio' name='voto' value='sim' checked='checked' disabled='disabled'/>Sim <input type='radio' name='voto' value='nao' disabled='disabled'/>Não";
 				}
 				else{
-					echo "<input type='radio' name='voto' value='sim' disabled='disabled'/>Sim <input type='radio' name='voto' value='nao' checked='checked' disabled='disabled'/>Não";
+					echo " <input type='radio' name='voto' value='sim' disabled='disabled'/>Sim <input type='radio' name='voto' value='nao' checked='checked' disabled='disabled'/>Não";
 				}
 			?>
 				<br/>
-			<label for="sexo">Sexo: </label><select disabled="disabled">
+			<label for="sexo">Sexo: </label><select name="sexo" id="sexo "disabled="disabled">
 			<?php
 				if($sexo=="masculino"){
 					echo "<option value='masculino' selected='selected'>Masculino</option>
