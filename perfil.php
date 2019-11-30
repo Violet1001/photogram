@@ -33,6 +33,8 @@
 				}
 			?>
 				<br/>
+			<center><div id="foto_perfil"></div></center>
+				<br/>
 			<label for="nome">Nome:</label> <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>" disabled="disabled"/> <a id="altera_nome" href="#" class="underline">Alterar nome</a>
 				<br/>
 			<label for="sobrenome">Sobrenome:</label> <input type="text" name="nome" id="nome" value="<?php echo $sobrenome; ?>" disabled="disabled"/> <a id="altera_sobrenome" href="#" class="underline">Alterar sobrenome</a>

@@ -12,7 +12,7 @@
 				include("menu.inc");
 				if(!isset($_SESSION["validado"])){
 					echo "<br/> <center>";
-						echo "<form action='valida_login.php' method='post' class='needs-validation' novalidate>
+						echo "<form action='valida_login.php' method='post' enctype='multipart/form-data' class='needs-validation' novalidate>
 								<div id='formulario_login' class='border w-50 pb-3 pt-3'>
 									<label for='username' for='validationCustom01'>Usuario: </label>
 										<input type='text' class='form-control text-capitalize' id='validationCustom01' placeholder='Usuario...' name = 'usuario' id='username'  required />

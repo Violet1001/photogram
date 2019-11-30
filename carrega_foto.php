@@ -5,6 +5,7 @@
 
 	$sql="SELECT * FROM imagem";
 	$p=0;
+
 	if(isset($_GET["pagina"])){
 		$p=$_GET["pagina"];
 	}
@@ -99,6 +100,8 @@
 
 			if((isset($nome) && isset($tipo) && isset($data_a) && isset($data_b)) && (!empty($nome) && !empty($tipo) && !empty($data_a) && !empty($data_b))){
 				$sql .= " WHERE nome_imagem like '%$nome%' AND tipo like '%$tipo%' and data BETWEEN '$data_a' AND '$data_b' AND id_usuario='$id'";
+				echo $sql;
+				die();
 			}
 			elseif((isset($nome) && isset($data_a) && isset($data_b)) && (!empty($nome) && !empty($data_a) && !empty($data_b))){
 				$sql .= " WHERE nome_imagem like '%$nome%' AND data BETWEEN '$data_a' AND '$data_b' AND id_usuario='$id'";

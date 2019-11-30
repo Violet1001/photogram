@@ -13,7 +13,7 @@
 				<div id="opcoes">
 					<input type="text" name="filtro_nome" id="filtro_nome" placeholder="pesquisar por nome..."/>  
 					<select name="filtro_tipo">
-						<option></option>
+						<option value="" selected="selected">Tipo...</option>
 						<option value="paisagem">Paisagem</option>
 						<option value="meme">Memes</option>
 						<option value="pessoa">Pessoas</option>
@@ -27,6 +27,24 @@
 					<button id="filtrar">Filtrar</button>
 				</div>
 			</div>
+				<br/>
+			<div id="">
+				<form action="cadastrar_imagem.php" enctype="multipart/form-data">
+					<span class="mr-3">Adicionar foto:</span><input type="file" name="pic" id="selecionar_foto"/>
+					<select name="tipo">
+							<option value="" selected="selected">Tipo...</option>
+							<option value="paisagem">Paisagem</option>
+							<option value="meme">Memes</option>
+							<option value="pessoa">Pessoas</option>
+							<option value="animal">Animais</option>
+							<option value="comida">Comida</option>
+							<option value="decoracao">Decoração</option>
+							<option value="outro">Outro</option>
+						</select>
+					<input type="submit" name="add_foto" id="add_foto" value="Adicionar esta foto"/>
+				</form>
+			</div>
+				<br/>
 			<div id="fotos_galeria" class="mt-2"></div>
 			<div id="paginacao" class="container">
 				<div class="btn-toolbar" role="toolbar" aria-label="Toolbar com grupos de botões">

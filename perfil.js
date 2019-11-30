@@ -1,5 +1,16 @@
 var f=null;
 $(function(){
+	carrega_foto_perfil();
+	function carrega_foto_perfil(){
+		$.ajax({
+			url:"foto_perfil.php",
+			success:function(vx){
+				console.log(vx);
+				var foto_perfil="<img src='./fotos_perfil/"+vx+"' class='w-25'/>";
+				$("#foto_perfil").append(foto_perfil);
+			}
+		});
+	}
 	$("#altera_nome").click(function(){
 		f=$(this).html();
 		$("#nome").removeAttr("disabled");
@@ -21,6 +32,5 @@ $(function(){
 				$("#altera_nome").html(f);
 			}
 		});
-		
 	});
 });
