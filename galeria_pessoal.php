@@ -1,13 +1,13 @@
-<?php include("head.inc") ?>
+<?php include("head.inc"); ?>
 		<script src="galeria.js"></script>
 		<title>Galeria</title>
 	</head>
 	<body onload="myFunction()" style="margin:0;">
-		<?php include("loading.inc") ?>
+		<?php include("loading.inc"); ?>
 		<div class="container">
 			<img src="imagens/photogram.png" style="height:100px;" />
 			<h1>Galeria</h1>
-			<?php include("menu.inc") ?>
+			<?php include("menu.inc"); ?>
 				<br/>
 			<div id="filtro">
 				<div id="opcoes">
@@ -28,19 +28,18 @@
 				</div>
 			</div>
 				<br/>
-			<div id="">
-				<form action="cadastrar_imagem.php" enctype="multipart/form-data">
+			<div id="adicionar_imagem">
+				<form action="cadastrar_imagem.php" method="POST" enctype="multipart/form-data">
 					<span class="mr-3">Adicionar foto:</span><input type="file" name="pic" id="selecionar_foto"/>
 					<select name="tipo">
-							<option value="" selected="selected">Tipo...</option>
-							<option value="paisagem">Paisagem</option>
-							<option value="meme">Memes</option>
-							<option value="pessoa">Pessoas</option>
-							<option value="animal">Animais</option>
-							<option value="comida">Comida</option>
-							<option value="decoracao">Decoração</option>
-							<option value="outro">Outro</option>
-						</select>
+						<option value="paisagem">Paisagem</option>
+						<option value="meme">Memes</option>
+						<option value="pessoa">Pessoas</option>
+						<option value="animal">Animais</option>
+						<option value="comida">Comida</option>
+						<option value="decoracao">Decoração</option>
+						<option value="outro">Outro</option>
+					</select>
 					<input type="submit" name="add_foto" id="add_foto" value="Adicionar esta foto"/>
 				</form>
 			</div>

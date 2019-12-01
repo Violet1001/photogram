@@ -55,7 +55,7 @@ $(function(){
 			}
 		});
 	});
-
+	//filtro
 	$(document).on("click","#filtrar",function(){
 		filtro_data_a=$("#filtro_data_a").val();
 		filtro_data_b= $("#filtro_data_b").val();
