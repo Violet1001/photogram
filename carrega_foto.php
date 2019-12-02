@@ -73,7 +73,7 @@
 		}
 
 	}
-
+$_POST["filtro_tipo"]="animal";
 	if(!empty($_POST)){
 		if(isset($_POST["filtro_nome"])){
 			$nome=$_POST["filtro_nome"];

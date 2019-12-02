@@ -45,13 +45,14 @@ $(function(){
 		carrega_fotos(pg);
 	});
 	$(document).on("click",".btn_excluir",function(){
+		var l=$(this);
 		var o=$(this).attr("valor");
 		$.ajax({
 			url:"remover.php",
 			type:"post",
 			data:{nome_imagem:o},
 			success:function(){
-				alert($(this).closest("img").attr("valor"));
+				console.log($(this).attr("src"));
 			}
 		});
 	});
@@ -66,7 +67,10 @@ $(function(){
 			type:"post",
 			data:
 			{
-				filtro_nome:filtro_nome,filtro_tipo:filtro_tipo,filtro_data_a:filtro_data_a,filtro_data_b:filtro_data_b
+				filtro_nome:filtro_nome,
+				filtro_tipo:filtro_tipo,
+				filtro_data_a:filtro_data_a,
+				filtro_data_b:filtro_data_b
 			},
 			success:function(matriz){
 				if(matriz.length>0){
@@ -74,10 +78,10 @@ $(function(){
 					console.log(matriz);
 					var fotos="<br/>";
 					for(i=0;matriz.length>i;i++){
-						fotos+="<img src='./imagens/"+matriz[i].nome_imagem+"' valor='"+matriz[i].nome_imagem+"' class='m-3' style='width:15%;'/>";
+						fotos+="<img src='./imagens/"+matriz[i].nome_imagem+"' valor='"+matriz[i].nome_imagem+"' class='m-3 w-50'/>";
 					}
 					p=$("#opcoes").html();
-					$("#fotos_home").html(fotos);
+					$("#fotos_galeria").html(fotos);
 					$("#opcoes").remove();
 					var remover="<div id='opcoes'><button id='remover_filtro' class='remove_filtro'>Remover filtros</button></div>";
 					$("#filtro").append(remover);

@@ -4,7 +4,12 @@
 
 	$tipo=$_POST["tipo"];
 	$data=date("Y-m-d");
+	$imagem=$_FILES["pic"];
 
+if(empty($_FILES["pic"]["name"])){
+	header("Location:galeria_pessoal.php?erro=erro");
+	die();
+}
 	if(!isset($_SESSION["validado"])){
 		header("index.php");
 		die();

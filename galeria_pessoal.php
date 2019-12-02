@@ -5,7 +5,7 @@
 	<body onload="myFunction()" style="margin:0;">
 		<?php include("loading.inc"); ?>
 		<div class="container">
-			<img src="imagens/photogram.png" style="height:100px;" />
+			<img src="./imagens/photogram.png" style="height:100px;" />
 			<h1>Galeria</h1>
 			<?php include("menu.inc"); ?>
 				<br/>
@@ -31,6 +31,11 @@
 			<div id="adicionar_imagem">
 				<form action="cadastrar_imagem.php" method="POST" enctype="multipart/form-data">
 					<span class="mr-3">Adicionar foto:</span><input type="file" name="pic" id="selecionar_foto"/>
+					<?php
+						if(isset($_GET["erro"])){
+							echo "Nenhuma foto selecionada, selecione outra.";
+						}
+					?>
 					<select name="tipo">
 						<option value="paisagem">Paisagem</option>
 						<option value="meme">Memes</option>
@@ -44,11 +49,11 @@
 				</form>
 			</div>
 				<br/>
-			<div id="fotos_galeria" class="mt-2"></div>
+			<div id="fotos_galeria" class="mt-2 row"></div>
 			<div id="paginacao" class="container">
-				<div class="btn-toolbar" role="toolbar" aria-label="Toolbar com grupos de botões">
+				<div class="btn-toolbar" role="toolbar">
 					<div class="col-md-5"></div>
-					<div id="btn_paginacao" class="btn-group mr-2" role="group" aria-label="Primeiro grupo"></div>
+					<div id="btn_paginacao" class="btn-group mr-2" role="group"></div>
 				</div>
 			</div>
 	</body>
