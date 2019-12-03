@@ -24,6 +24,14 @@ body{
 
 .btn_filtrar:hover{background-color:gray; color:white;}
 
+.remove_filtro{
+	border: 1px solid lightgray;
+	background-color: transparent;
+	border-radius: 5px;
+	width: 90px;
+}
+
+.remove_filtro:hover{background-color:gray; color:white;}
 #loader {
 		position: absolute;
 		left: 50%;
