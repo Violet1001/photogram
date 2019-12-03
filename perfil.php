@@ -33,6 +33,7 @@
 				}
 			?>
 				<br/>
+<<<<<<< HEAD
 				<div id="foto_perfil" style="text-align:left;"></div>
 			<div class="row">
 			
@@ -60,6 +61,30 @@
 					<?php
 						if($sexo=="masculino"){
 						echo "<option value='masculino' selected='selected'>Masculino</option>
+=======
+			<center><div id="foto_perfil"></div></center>
+				<br/>
+			<label for="nome">Nome:</label> <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>" disabled="disabled"/> <a id="altera_nome" href="#" class="underline">Alterar nome</a>
+				<br/>
+			<label for="sobrenome">Sobrenome:</label> <input type="text" name="nome" id="nome" value="<?php echo $sobrenome; ?>" disabled="disabled"/> <a id="altera_sobrenome" href="#" class="underline">Alterar sobrenome</a>
+				<br/>
+			<label for="usuario">Usuário:</label> <input type="text" name="usuario" id="usuario" value="<?php echo $_SESSION["user"]; ?>" disabled="disabled"/> <a id="altera_usuario" href="#" class="underline">Alterar nome de usuario</a>
+				<br/>
+			<label>Votou esta semana?</label>
+			<?php
+				if($voto=="sim"){
+					echo " <input type='radio' name='voto' value='sim' checked='checked' disabled='disabled'/>Sim <input type='radio' name='voto' value='nao' disabled='disabled'/>Não";
+				}
+				else{
+					echo " <input type='radio' name='voto' value='sim' disabled='disabled'/>Sim <input type='radio' name='voto' value='nao' checked='checked' disabled='disabled'/>Não";
+				}
+			?>
+				<br/>
+			<label for="sexo">Sexo: </label><select name="sexo" id="sexo "disabled="disabled">
+			<?php
+				if($sexo=="masculino"){
+					echo "<option value='masculino' selected='selected'>Masculino</option>
+>>>>>>> f43a44af97e939e36713f3cf06fdaeb11d769604
 						  <option value='feminino'>Feminino</option>
 						  <option value='outro'>Outro</option>";
 						}
