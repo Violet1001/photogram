@@ -22,7 +22,13 @@ $(function(){
 		$.ajax({
 			url:"altera.php",
 			type:"post",
-			data:{nome:$("#nome").val()},
+			data:
+			{
+				nome:$("#nome").val(),
+				sexo:$("#sexo").val(),
+				sobrenome:$("#sobrenome").val(),
+				usuario:$("#usuario").val()
+			},
 			success:function(g){
 				console.log(f);
 				console.log(g);

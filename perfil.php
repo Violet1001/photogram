@@ -9,7 +9,6 @@
 
 <body onload="myFunction()" style="margin:0;">
 	<div class="container border">
-		
 		<div id="informacoes" class="text-center">
 			<img src="imagens/photogram.png" style="height:100px;" />
 			<h2>Informações do Perfil</h2>
@@ -32,8 +31,7 @@
 					$sexo=$linha["sexo"];
 				}
 			?>
-				<br/>
-<<<<<<< HEAD
+					<br/>
 				<div id="foto_perfil" style="text-align:left;"></div>
 			<div class="row">
 			
@@ -60,13 +58,18 @@
 					<label for="sexo" style="margin-left:20px;margin-right:5px;">Sexo: </label><select name="sexo" id="sexo "disabled="disabled" style="margin-right:80px">
 					<?php
 						if($sexo=="masculino"){
-						echo "<option value='masculino' selected='selected'>Masculino</option>
-=======
+							echo "<option value='masculino' selected='selected'>Masculino</option>";
+							echo "<option value='feminino' selected='selected'>Feminino</option>";
+						else{
+							echo "<option value='masculino'>Masculino</option>";
+							echo "<option value='feminino' selected='selected'>Feminino</option>";
+						}
+					?>
 			<center><div id="foto_perfil"></div></center>
 				<br/>
 			<label for="nome">Nome:</label> <input type="text" name="nome" id="nome" value="<?php echo $nome; ?>" disabled="disabled"/> <a id="altera_nome" href="#" class="underline">Alterar nome</a>
 				<br/>
-			<label for="sobrenome">Sobrenome:</label> <input type="text" name="nome" id="nome" value="<?php echo $sobrenome; ?>" disabled="disabled"/> <a id="altera_sobrenome" href="#" class="underline">Alterar sobrenome</a>
+			<label for="sobrenome">Sobrenome:</label> <input type="text" name="sobrenome" id="sobrenome" value="<?php echo $sobrenome; ?>" disabled="disabled"/> <a id="altera_sobrenome" href="#" class="underline">Alterar sobrenome</a>
 				<br/>
 			<label for="usuario">Usuário:</label> <input type="text" name="usuario" id="usuario" value="<?php echo $_SESSION["user"]; ?>" disabled="disabled"/> <a id="altera_usuario" href="#" class="underline">Alterar nome de usuario</a>
 				<br/>
@@ -83,22 +86,21 @@
 			<label for="sexo">Sexo: </label><select name="sexo" id="sexo "disabled="disabled">
 			<?php
 				if($sexo=="masculino"){
-					echo "<option value='masculino' selected='selected'>Masculino</option>
->>>>>>> f43a44af97e939e36713f3cf06fdaeb11d769604
-						  <option value='feminino'>Feminino</option>
-						  <option value='outro'>Outro</option>";
-						}
-						elseif($sexo=="feminino"){
-						echo "<option value='masculino'>Masculino</option>
-						  <option value='feminino' selected='selected'>Feminino</option>
-						  <option value='outro'>Outro</option>";
-						}
-						else{
-						echo "<option value='masculino'>Masculino</option>
-						  <option value='feminino'>Feminino</option>
-						  <option value='outro' selected='selected'>Outro</option>";
-						}
-					?>
+					echo"<option value='masculino' selected='selected'>Masculino</option>
+						 <option value='feminino'>Feminino</option>
+						 <option value='outro'>Outro</option>";
+					}
+					elseif($sexo=="feminino"){
+						echo"<option value='masculino'>Masculino</option>
+							 <option value='feminino' selected='selected'>Feminino</option>
+							 <option value='outro'>Outro</option>";
+					}
+					else{
+						echo"<option value='masculino'>Masculino</option>
+							 <option value='feminino'>Feminino</option>
+							 <option value='outro' selected='selected'>Outro</option>";
+					}
+				?>
 					</select> <a id="altera_sexo" href="#" class="underline">Alterar sexo</a>
 				</div>
 			</div>

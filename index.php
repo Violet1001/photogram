@@ -11,7 +11,7 @@
 				<br/>
 			<div id="filtro">
 				<div id="opcoes">
-					<input type="text" class="inputis" name="filtro_nome" id="filtro_nome" placeholder="Nome..."/>  
+					<input type="text" class="inputis" name="filtro_nome" id="filtro_nome" placeholder="Nome..."/>
 					<select name="filtro_tipo" class="inputis" style="height:27px;">
 						<option value="" selected="selected">Tipo...</option>
 						<option value="paisagem">Paisagem</option>
