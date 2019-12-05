@@ -1,7 +1,7 @@
 <?php
 	$local="localhost:3306";
 	$usuario="root";
-	$senha="";
+	$senha="usbw";
 	$bd="photogram";
 	
 	$conexao=mysqli_connect($local,$usuario,$senha,$bd) or die("ERRO".mysqli_error($conexao));

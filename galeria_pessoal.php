@@ -6,7 +6,7 @@
 		<?php include("loading.inc"); ?>
 		<div class="container">
 			<img src="./imagens/photogram.png" style="height:100px;" />
-			<h1>Galeria</h1>
+			<h3>Galeria</h3>
 			<?php include("menu.inc"); ?>
 				<br/>
 			<div id="filtro">
@@ -24,7 +24,7 @@
 						</select>
 						Data entre: <input type="date" name="filtro_data_a" id="filtro_data_a"/> e
 						<input type="date" name="filtro_data_b" id="filtro_data_b"/>
-						<input type="submit" id="filtrar" value="Filtrar"/>
+						<input type="submit" id="filtrar" class="btn_filtrar" value="Filtrar"/>
 				</div>
 			</div>
 				<br/>
@@ -45,7 +45,7 @@
 						<option value="decoracao">Decoração</option>
 						<option value="outro">Outro</option>
 					</select>
-					<input type="submit" name="add_foto" id="add_foto" value="Adicionar esta foto"/>
+					<input type="submit" class="btn_filtrar" name="add_foto" id="add_foto" value="Add Foto"/>
 				</form>
 			</div>
 				<br/>
