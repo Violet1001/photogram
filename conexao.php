@@ -1,5 +1,5 @@
 <?php
-	$local="localhost:3306";
+	$local="localhost:3307";
 	$usuario="root";
 	$senha="usbw";
 	$bd="photogram";
