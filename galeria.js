@@ -1,9 +1,9 @@
 p=null;
+r=null;
 filtro_data_a="";
 filtro_data_b="";
 filtro_nome="";
 filtro_tipo="";
-filtrado=1;
 $(function(){
 	carrega_fotos(0);
 	function carrega_fotos(p){
@@ -16,10 +16,13 @@ $(function(){
 				var fotos="<br/>";
 				var i=0;
 				for(i=0;a.length>i;i++){
-					fotos+="<img src='./imagens/"+a[i]+"' valor='"+a[i]+"' class='m-3' style='width:15%;'/>";
-					fotos+="<button id='apagar_imagem' class='btn_excluir btn' valor='"+a[i]+"' style='width:50px;'><img src='./imagens/apagar.jpg' class='w-100'/></button>";
+					fotos+="<img src='./imagens/"+a[i]+"' valor='"+a[i]+"' class='m-3 w-25'/>";
+					fotos+="<button id='apagar_imagem' class='btn_excluir btn' valor='"+a[i]+"' style='width:50px;'><img src='./imagens/apagar.jpg' class='w-75'/></button>";
 				}
 				$("#fotos_galeria").html(fotos);
+			},
+			error:function(){
+				console.log("ff");
 			}
 		});
 	}
@@ -31,7 +34,7 @@ $(function(){
 			type:"get",
 			data:
 			{
-				pg:"galeria",filtro_nome:filtro_nome,filtro_tipo:filtro_tipo,filtro_data_a:filtro_data_a,filtro_data_b:filtro_data_b,filtrado:filtrado
+				pg:"galeria",filtro_nome:filtro_nome,filtro_tipo:filtro_tipo,filtro_data_a:filtro_data_a,filtro_data_b:filtro_data_b
 			},
 			success:function(a){
 				$("#btn_paginacao").html(a);
@@ -61,20 +64,16 @@ $(function(){
 		filtro_data_a=$("#filtro_data_a").val();
 		filtro_data_b= $("#filtro_data_b").val();
 		filtro_nome=$("#filtro_nome").val();
-		filtro_tipo=$("select[name='filtro_tipo']").val();
+		filtro_tipo=$("select[name='filtro_tipo'] option:selected").val();
 		$.ajax({
 			url:"carrega_foto.php",
 			type:"post",
 			data:
 			{
-<<<<<<< HEAD
-				filtro_nome:filtro_nome,filtro_tipo:filtro_tipo,filtro_data_a:filtro_data_a,filtro_data_b:filtro_data_b
-=======
 				filtro_nome:filtro_nome,
 				filtro_tipo:filtro_tipo,
 				filtro_data_a:filtro_data_a,
 				filtro_data_b:filtro_data_b
->>>>>>> f43a44af97e939e36713f3cf06fdaeb11d769604
 			},
 			success:function(matriz){
 				if(matriz.length>0){
@@ -83,8 +82,9 @@ $(function(){
 					var fotos="<br/>";
 					for(i=0;matriz.length>i;i++){
 						fotos+="<img src='./imagens/"+matriz[i].nome_imagem+"' valor='"+matriz[i].nome_imagem+"' class='m-3 w-50'/>";
+						console.log(i);
 					}
-					p=$("#opcoes").html();
+					r=$("#opcoes").html();
 					$("#fotos_galeria").html(fotos);
 					$("#opcoes").remove();
 					var remover="<div id='opcoes'><button id='remover_filtro' class='remove_filtro'>Remover filtros</button></div>";
@@ -94,16 +94,16 @@ $(function(){
 					carrega_fotos(0);
 				}
 			},
-			error:function(h){
-				console.log("erro");
+			error:function(lk){
+				console.log("erro. "+lk);
 			}
 		});
 	});
 	$(document).on("click",".remove_filtro",function(){
 		var voltar="<div id='opcoes'>";
-		voltar+=p;
+		voltar+=r;
 		voltar+="</div>";
 		$("#filtro").html(voltar);
-		carrega_fotos();
+		carrega_fotos(0);
 	});
 });

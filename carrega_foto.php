@@ -30,7 +30,7 @@
 
 				$consulta_usuario="SELECT id_usuario FROM cadastro WHERE usuario='$nome_usuario'";
 				$resultado=mysqli_query($conexao,$consulta_usuario);
-				
+
 				$linha=mysqli_fetch_assoc($resultado);
 				$id=$linha["id_usuario"];
 
@@ -71,20 +71,19 @@
 				die();
 			}
 		}
-
 	}
 
 	if(!empty($_POST)){
-		if(isset($_POST["filtro_nome"])){
+		if(isset($_POST["filtro_nome"]) && !empty($_POST["filtro_nome"])){
 			$nome=$_POST["filtro_nome"];
 		}
-		if(isset($_POST["filtro_tipo"])){
+		if(isset($_POST["filtro_tipo"]) && !empty($_POST["filtro_tipo"])){
 			$tipo=$_POST["filtro_tipo"];
 		}
-		if(isset($_POST["filtro_data_a"])){
+		if(isset($_POST["filtro_data_a"]) && !empty($_POST["filtro_data_a"])){
 			$data_a=$_POST["filtro_data_a"];
 		}
-		if(isset($_POST["filtro_data_b"])){
+		if(isset($_POST["filtro_data_b"]) && !empty($_POST["filtro_data_b"])){
 			$data_b=$_POST["filtro_data_b"];
 		}
 
@@ -100,8 +99,6 @@
 
 			if((isset($nome) && isset($tipo) && isset($data_a) && isset($data_b)) && (!empty($nome) && !empty($tipo) && !empty($data_a) && !empty($data_b))){
 				$sql .= " WHERE nome_imagem like '%$nome%' AND tipo like '%$tipo%' and data BETWEEN '$data_a' AND '$data_b' AND id_usuario='$id'";
-				echo $sql;
-				die();
 			}
 			elseif((isset($nome) && isset($data_a) && isset($data_b)) && (!empty($nome) && !empty($data_a) && !empty($data_b))){
 				$sql .= " WHERE nome_imagem like '%$nome%' AND data BETWEEN '$data_a' AND '$data_b' AND id_usuario='$id'";
@@ -143,6 +140,7 @@
 		}
 		elseif((isset($nome) && isset($data_a) && isset($data_b)) && (!empty($nome) && !empty($data_a) && !empty($data_b))){
 			$sql .= " WHERE nome_imagem like '%$nome%' AND data BETWEEN '$data_a' AND '$data_b'";
+			
 		}
 		elseif((isset($nome) && isset($tipo)) && (!empty($nome) && !empty($tipo))){
 			$sql .= " WHERE nome_imagem like '%$nome%' AND tipo like '%$tipo%'";
@@ -152,21 +150,27 @@
 		}
 		elseif(isset($nome) && !empty($nome)){
 			$sql .= " WHERE nome_imagem like '%$nome%'";
+			
 		}
 		elseif((isset($data_a) && isset($data_b)) && (!empty($data_a) && !empty($data_b))){
 			$sql .= " WHERE data BETWEEN '$data_a' AND '$data_b'";
+			
 		}
 		elseif(isset($tipo) && !empty($tipo)){
 			$sql .= " WHERE tipo like '%$tipo%'";
+			
 		}
 		elseif(isset($data_a) && !empty($data_a) && !isset($data_b)){
 			$sql .= " WHERE data='%$data_a%'";
+			
 		}
 		elseif(isset($data_b) && !empty($data_b) && !isset($data_a)){
 			$sql .= " WHERE data='%$data_b%'";
+			
 		}
 	}
 	$sql.=" LIMIT $p,5";
+	
 	$resultado=mysqli_query($conexao,$sql);
 
 	while($linha=mysqli_fetch_assoc($resultado)){

@@ -7,7 +7,6 @@
 
 		<?php
 			include("loading.inc");
-			include("menu.inc");
 
 			if(isset($_SESSION["validado"])){
 				header("Location:index.php");
@@ -19,7 +18,7 @@
 			<?php include("menu.inc"); ?> 
 				<br>
 			<div id="cadastro" class="w-50 text-center border p-3" style="margin-left:25%;">
-				<form action="cadastro.php" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+				<center><form action="cadastro.php" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
 					<div class="form-row">
 						<div class="col-md-4 mb-3">
 							<label for="validationCustom01">Nome</label>
@@ -37,7 +36,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="inputGroupPrepend">@</span>
 								</div>
-								<input type="text" class="form-control" id="validationCustomUsername" name="usuario" placeholder="Usuario" aria-describedby="inputGroupPrepend" required="required"/>
+									<input type="text" class="form-control" id="validationCustomUsername" name="usuario" placeholder="Usuario" aria-describedby="inputGroupPrepend" required="required"/>
 								<div class="invalid-feedback">Por favor, escolha um nome de usuario.</div>
 							</div>
 						</div>
@@ -45,7 +44,7 @@
 					<div class="form-row">
 						<div class="col-md-6 mb-3">
 							<label for="validationCustom03">Email</label>
-							<input type="email" class="form-control" id="validationCustom03" placeholder="Email" name="email" required>
+								<input type="email" class="form-control" id="validationCustom03" placeholder="Email" name="email" required>
 							<div class="invalid-feedback">Por favor, informe um email valido.</div>
 						</div>
 						<div class="col-md-6 mb-3">
@@ -54,8 +53,7 @@
 							<div class="invalid-feedback">Por favor, informe uma senha valida.</div>
 						</div>
 						<div class="row">
-							<label class="col-form-label col-sm-2 pt-0">Sexo</label>
-							<legend class="col-form-label col-sm-2 pt-0">Sexo</legend>
+							<label class="col-form-label col-sm-2 pt-0">Sexo: </label>
 							<div class="col-sm-10">
 								<div class="form-check">
 									<input class="form-check-input" type="radio" name="sexo" id="gridRadios1" value="feminino"/>
@@ -71,24 +69,22 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4 mb-3">
-						<div class="col-md-5 mb-3">
-							<label for = "foto">Foto</label>
+						<div class="col-md-12 mb-3">
+							<div class="col-md-8 mb-3">
+								<label for="foto">Foto</label>
 								<legend class="custom-file-label" for="customFile" style = "margin-top: 32px; text-align: left; font-size: 15px;">Foto (opcional)</legend>
-								<input type="file" class="custom-file-input" name="pic" id="customFile"/>
+									<input type="file" class="custom-file-input" name="pic" id="customFile"/>
+							</div>
+							<div class="col-md-8 mb-3">
+								<label for="validationCustom04">Data Nascimento</label>
+									<input type="date" class="form-control" id="validationCustom04" required="required" name="data_nascimento"/>
+								<div class="invalid-feedback">Por favor, informe uma data valida.</div>
+							</div>
 						</div>
-
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom04">Data Nascimento</label>
-								<input type="date" class="form-control" id="validationCustom04" required="required" name="data_nascimento"/>
-							<div class="invalid-feedback">Por favor, informe uma data valida.</div>
-						</div>
-						<button class="btn btn-outline-dark" type="submit" style="height: 50px; width: 100px; margin-left: 350px;">Enviar</button>
-					</div>
-					<br>
+							<br>
 						<button class="btn btn-primary" type="submit" style="height: 50px; width: 100px; margin-left: 250px;">Enviar</button>
 					</div>
-				</form>
+				</form></center>
 			</div>
 		</div>
 	</body>

@@ -11,34 +11,31 @@
 				<br/>
 			<div id="filtro">
 				<div id="opcoes">
-					<input type="text" name="filtro_nome" id="filtro_nome" placeholder="pesquisar por nome..."/>  
-					<select name="filtro_tipo">
-						<option value="" selected="selected">Tipo...</option>
-						<option value="paisagem">Paisagem</option>
-						<option value="meme">Memes</option>
-						<option value="pessoa">Pessoas</option>
-						<option value="animal">Animais</option>
-						<option value="comida">Comida</option>
-						<option value="decoracao">Decoração</option>
-						<option value="outro">Outro</option>
-					</select>
-					Data entre: <input type="date" name="filtro_data_a" id="filtro_data_a"/> e
-					<input type="date" name="filtro_data_b" id="filtro_data_b"/>
-					<button id="filtrar">Filtrar</button>
+						<input type="text" name="filtro_nome" id="filtro_nome" placeholder="pesquisar por nome..."/>  
+						<select name="filtro_tipo">
+							<option value="" selected="selected">Tipo...</option>
+							<option value="paisagem">Paisagem</option>
+							<option value="meme">Memes</option>
+							<option value="pessoa">Pessoas</option>
+							<option value="animal">Animais</option>
+							<option value="comida">Comida</option>
+							<option value="decoracao">Decoração</option>
+							<option value="outro">Outro</option>
+						</select>
+						Data entre: <input type="date" name="filtro_data_a" id="filtro_data_a"/> e
+						<input type="date" name="filtro_data_b" id="filtro_data_b"/>
+						<input type="submit" id="filtrar" value="Filtrar"/>
 				</div>
 			</div>
 				<br/>
 			<div id="adicionar_imagem">
 				<form action="cadastrar_imagem.php" method="POST" enctype="multipart/form-data">
 					<span class="mr-3">Adicionar foto:</span><input type="file" name="pic" id="selecionar_foto"/>
-<<<<<<< HEAD
-=======
 					<?php
 						if(isset($_GET["erro"])){
-							echo "Nenhuma foto selecionada, selecione outra.";
+							echo "Erro. Nenhuma foto selecionada.";
 						}
 					?>
->>>>>>> f43a44af97e939e36713f3cf06fdaeb11d769604
 					<select name="tipo">
 						<option value="paisagem">Paisagem</option>
 						<option value="meme">Memes</option>
@@ -52,11 +49,7 @@
 				</form>
 			</div>
 				<br/>
-<<<<<<< HEAD
-			<div id="fotos_galeria" class="mt-2"></div>
-=======
 			<div id="fotos_galeria" class="mt-2 row"></div>
->>>>>>> f43a44af97e939e36713f3cf06fdaeb11d769604
 			<div id="paginacao" class="container">
 				<div class="btn-toolbar" role="toolbar">
 					<div class="col-md-5"></div>
